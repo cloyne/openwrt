@@ -1,0 +1,4 @@
+/ImageBuilder
+firmware/**/*.bin
+firmware/**/*.img
+OpenWrt-ImageBuilder-ar71xx_generic-for-linux-i486.tar.bz2

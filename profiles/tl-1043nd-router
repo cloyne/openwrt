@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#if [ -z $1 ]
+#then
+#  echo "usage: $0 <hw_address>"
+#  exit 1
+#fi
+
+# get directory of script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# get config
+rm -rf "$DIR/../ImageBuilder/files"
+#cp -r "$DIR/../files/$(basename $0)/" "$DIR/../ImageBuilder/files"
+cd "$DIR/../ImageBuilder"
+#sed -i -e "s/00:11:22:33:44:55/$1/" files/etc/config/wireless
+
+# generate image
+make image PROFILE=TLWR1043 PACKAGES="luci python openssh-sftp-server" #**FILES="files"**
+echo "cd $(pwd)/bin/"

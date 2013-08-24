@@ -1,0 +1,24 @@
+
+# download image builder
+if [ ! -e ImageBuilder ]
+then
+  wget -O ImageBuilder.tar.bz2 http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/OpenWrt-ImageBuilder-ar71xx_generic-for-linux-i486.tar.bz2
+  tar xf ImageBuilder.tar.bz2
+  mv OpenWrt-ImageBuilder-ar71xx_generic-for-linux-i486 ImageBuilder
+fi
+
+# download tp link 1043nd firmwares
+mkdir -p firmware/tl-1043nd
+cd firmware/tl-1043nd
+if [ ! -e original.img ]
+then
+  wget -O original.img "https://www.dropbox.com/el/?r=/s/f5kmuhld737veel/wr1043nv1_de_3_9_17_up_boot%2528100331%2529.bin&b=clk:124224095:13687220193071768671:777:446&z=AADjSCWkSnwuH8evw7wIbFDVpQJ9iogbHn-rdWJwu5h3tQ"
+fi
+if [ ! -e factory.bin ]
+then
+  wget -O factory.bin "http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/openwrt-ar71xx-generic-tl-wr1043nd-v1-squashfs-factory.bin"
+fi
+if [ ! -e sysupgrade.bin ]
+then
+  wget -O sysupgrade.bin "http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/openwrt-ar71xx-generic-tl-wr1043nd-v1-squashfs-sysupgrade.bin"
+fi
