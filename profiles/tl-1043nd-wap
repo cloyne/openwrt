@@ -2,7 +2,7 @@
 
 if [ -z $1 ]
 then
-  echo "usage: $0 <hw_address>"
+  echo "usage: $0 <ip_address> <hw_address> <hostname>"
   exit 1
 fi
 
@@ -13,8 +13,11 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 rm -rf "$DIR/../ImageBuilder/files"
 cp -r "$DIR/../files/$(basename $0)/" "$DIR/../ImageBuilder/files"
 cd "$DIR/../ImageBuilder"
-sed -i -e "s/00:11:22:33:44:55/$1/" files/etc/config/wireless
+sed -i -e "s/ipAddressPlaceholder/$1/" files/etc/config/network
+sed -i -e "s/macAddressPlaceholder/$2/" files/etc/config/wireless
+sed -i -e "s/hostnamePlaceholder/$3/" files/etc/config/network
 
 # generate image
-make image PROFILE=TLWR1043 PACKAGES="python openssh-sftp-server" **FILES="files"**
+#make image PROFILE=TLWR1043 PACKAGES="python openssh-sftp-server" **FILES="files"
+make image PROFILE=TLWR1043 PACKAGES="python openssh-sftp-server -dnsmasq luci" FILES=files/
 echo "cd $(pwd)/bin/"

@@ -4,7 +4,7 @@ config system
 	option timezone 'GMT0'
 	option conloglevel '8'
 	option cronloglevel '8'
-	option hostname 'wap'
+	option hostname 'hostnamePlaceholder'
 
 config timeserver 'ntp'
 	list server '0.openwrt.pool.ntp.org'

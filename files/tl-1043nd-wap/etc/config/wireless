@@ -1,7 +1,7 @@
 
 config wifi-device 'radio0'
 	option type 'mac80211'
-	option macaddr '00:11:22:33:44:55'
+	option macaddr 'macAddressPlaceholder'
 	option hwmode '11ng'
 	option htmode 'HT20'
 	list ht_capab 'SHORT-GI-40'
