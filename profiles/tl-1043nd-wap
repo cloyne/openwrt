@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z $1 ]
+if [ -z $1 && -z $2 && -z $3 ]
 then
   echo "usage: $0 <ip_address> <hw_address> <hostname>"
   exit 1
@@ -16,8 +16,8 @@ cd "$DIR/../ImageBuilder"
 sed -i -e "s/ipAddressPlaceholder/$1/" files/etc/config/network
 sed -i -e "s/macAddressPlaceholder/$2/" files/etc/config/wireless
 sed -i -e "s/hostnamePlaceholder/$3/" files/etc/config/network
+sed -i -e "s/hostnamePlaceholder/$3/" files/etc/config/system
 
 # generate image
-#make image PROFILE=TLWR1043 PACKAGES="python openssh-sftp-server" **FILES="files"
 make image PROFILE=TLWR1043 PACKAGES="python openssh-sftp-server -dnsmasq luci" FILES=files/
 echo "cd $(pwd)/bin/"
