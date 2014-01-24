@@ -10,9 +10,9 @@ fi
 # download tp link 1043nd firmwares
 mkdir -p firmware/tl-1043nd
 cd firmware/tl-1043nd
-if [ ! -e original.img ]
+if [ ! -e original.bin ]
 then
-  wget -O original.img "https://www.dropbox.com/el/?r=/s/f5kmuhld737veel/wr1043nv1_de_3_9_17_up_boot%2528100331%2529.bin&b=clk:124224095:13687220193071768671:777:446&z=AADjSCWkSnwuH8evw7wIbFDVpQJ9iogbHn-rdWJwu5h3tQ"
+  wget -O original.bin "http://rnd.rajven.net/firmware/tp-link/original/wr1043nv1_de_3_9_17_up_boot(100331).bin"
 fi
 if [ ! -e factory.bin ]
 then
