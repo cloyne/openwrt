@@ -11,6 +11,8 @@ instant OpenWRT config!
   - plug in power to tl-wr1043nd
   - plug in ethernet to tl-wr1043nd (LAN not WAN port) and your computer
 - [bootloader downgrade](http://wiki.openwrt.org/toh/tp-link/tl-wr1043nd#bootloader.downgrade)
+  - run ./bin/deps
+  - if the device is not set to factory defaults, hit the reset button on the back for at least 5 seconds
   - connect to tl-wr1043nd either using DHCP or static ip in 192.168.1.1xx range
   - browse to http://192.168.1.1
   - log in with user `admin` and password `admin`
@@ -24,9 +26,10 @@ instant OpenWRT config!
   - do not unplug anything and wait. the tl-wr1043 will eventually drop your connection, reflash, and reboot.
 - generate Cloyne profile
   - run `./bin/tl-1043nd-wap <ip_address> <hw_address> <hostname>`
-    - where <ip_address> is in range 192.168.0.2 - 192.168.0.254
-    - where <hw_address> is the same hardware addresss on the back of the tl-wr1043nd in form `AA:BB:CC:DD:EE:FF`
-    - where <hostname> is in form c1-wap
+    - where ip_address is in range 192.168.0.2 - 192.168.0.254; check network.csv in the network repository for a list of taken ip's
+    - where hw_address is the same hardware addresss on the back of the tl-wr1043nd in form `AA:BB:CC:DD:EE:FF`
+    - where hostname is in form c1-wap
+    - there is no progress indicator so let it run until completion
 - install sysupgrade Cloyne profile
   - reconnect to tl-wr1043nd either using DHCP or static ip in 192.168.1.1xx range
   - browse to http://192.168.1.1
@@ -39,7 +42,7 @@ instant OpenWRT config!
 
 ## TODO
 
-change 
+change
 
 `./bin/tl-1043nd-wap <ip_address> <hw_address> <hostname>`
 
